@@ -1,0 +1,25 @@
+{
+  "name": "analytics-service",
+  "version": "1.0.0",
+  "description": "Analytics endpoint",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongodb": "^2.2.31"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodejs index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conor0456/analytics-service.git"
+  },
+  "author": "Conor D'Arcy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/conor0456/analytics-service/issues"
+  },
+  "homepage": "https://github.com/conor0456/analytics-service#readme"
+}
