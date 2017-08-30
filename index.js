@@ -14,18 +14,31 @@ app.listen(3000, ()=>{
   console.log('server started on 3000')
 })
 
+app.post('/select', async function(req, res){
+  var filter = req.body
+  console.log('FILTER:',filter)
+  if(handlers.verify(req)){
+    var response = await handlers.selectValues(filter)
+  }
+  console.log(response)
+  res.send(response)
+})
 
-// app.post('/', function(req, res) {
-//     if(handlers.verify(req)){
-//       Object.keys(req.body).forEach((value)=>{
-//         console.log(value)
-//       })
-//     }
-// })
-var gotEm = async function(){
-    //await mongo.functions.insert([{a : 1}, {a : 2}, {a : 3}]).then(console.log)
-    await mongo.functions.select({a:1}).then(console.log)
+app.get('/selectAll', async function(req, res){
+  var response = await handlers.returnValues({})
+  console.log(response)
+  res.send(response)
+})
 
-}
+app.get('/truncate', async function(req, res){
+  var response = await handlers.truncate()
+  res.send(response)
+})
 
-gotEm()
+app.post('/insert', async function(req, res){
+  if(handlers.verify(req)){
+    var result = await handlers.insertValues(req)
+    console.log('Insert Finished')
+    res.send(result)
+  }
+})

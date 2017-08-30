@@ -1,8 +1,7 @@
-var MongoClient = require('mongodb').MongoClient
-var assert = require('assert')
+var MongoClient =
 
 var url = 'mongodb://localhost:27017';
 
 exports.connect = function() {
-  return new Promise(MongoClient.connect(url))
+  return MongoClient.connect(url)
 }
